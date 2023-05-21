@@ -9,3 +9,11 @@
 .collapsed {
   width: var(--sidebar-width-collapsed);
 }
+
+.switchers {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
