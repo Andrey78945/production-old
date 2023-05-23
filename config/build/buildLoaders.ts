@@ -45,5 +45,25 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     ],
   };
 
-  return [fileLoader, svgLoader, typescriptLoader, cssLoader];
+  const babelLoader = {
+    test: /\.[jt]sx?$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: [["@babel/preset-env", { targets: "defaults" }]],
+        plugins: [
+          "i18next-extract",
+          {
+            locales: ["en", "ru"],
+            keyAsDefaultValue: false,
+            saveMissing: true,
+            outputPath: "public/locales/{{locale}}/{{ns}}.json", //t("key", {ns: "locale-file"})
+          },
+        ],
+      },
+    },
+  };
+
+  return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoader];
 }
