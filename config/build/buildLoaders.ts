@@ -17,6 +17,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
             localIdentName: isDev
               ? '[path][name]__[local]--[hash:base64:8]'
               : '[hash:base64:8]',
+            exportLocalsConvention: 'camelCase',
           },
         },
       },
@@ -53,14 +54,27 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
       options: {
         presets: [['@babel/preset-env', { targets: 'defaults' }]],
         plugins: [
-          'i18next-extract',
-          {
-            locales: ['en', 'ru'],
-            keyAsDefaultValue: false,
-            saveMissing: true,
-            outputPath: 'public/locales/{{locale}}/{{ns}}.json', // t("key", {ns: "locale-file"})
-          },
+          [
+            'i18next-extract',
+            {
+              locales: ['en', 'ru'],
+              keyAsDefaultValue: false, // false
+              saveMissing: true,
+              outputPath: 'public/locales/{{locale}}/{{ns}}.json', // t("key", {ns: "locale-file"})
+            },
+          ],
         ],
+        // plugins: [
+        //   [
+        //     "i18next-extract",
+        //     {
+        //       locales: ["en", "ru"],
+        //       keyAsDefaultValue: false,
+        //       saveMissing: true,
+        //       outputPath: "public/locales/{{locale}}/{{ns}}.json",
+        //     },
+        //   ],
+        // ],
       },
     },
   };

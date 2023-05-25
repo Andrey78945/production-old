@@ -1,7 +1,11 @@
 {
-  "Тестовый перевод": "Test translation",
-  "Перевод": "Translate",
-  "Язык": "English",
+  "Главная страница": "Main Page",
   "Загрузка": "Loading...",
-  "Изменить ширину": "Toggle"
+  "Изменить ширину": "Toggle",
+  "О сайте": "About",
+  "Перевод": "Translate",
+  "Русский": "English",
+  "Страница не найдена": "Page not found",
+  "Тестовый перевод": "Test translation",
+  "Язык": "English"
 }

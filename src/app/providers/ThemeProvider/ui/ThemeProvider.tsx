@@ -5,6 +5,7 @@ import {
   ThemeContext,
 } from '../lib/ThemeContext';
 
+// eslint-disable-next-line max-len
 const defaultTheme = (localStorage.getItem(LOCAL_STORIGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
 const ThemeProvider: FC = ({ children }) => {

@@ -42,6 +42,9 @@ module.exports = {
       "error",
       { markupOnly: true, ignoreAttribute: ["data-testid", "to"] },
     ],
+    "max-len": ["warn", { ignoreComments: true }],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
   },
   parser: "@typescript-eslint/parser",
   settings: {
