@@ -1,9 +1,13 @@
 {
+  "Выбросить ошибку": "Throw an Error",
   "Главная страница": "Main Page",
+  "Домой": "Main Page",
   "Загрузка": "Loading...",
   "Изменить ширину": "Toggle",
   "О сайте": "About",
+  "Обновить страницу": "Refresh page",
   "Перевод": "Translate",
+  "Произошла непредвиденная ошибка": "Something happened",
   "Русский": "English",
   "Страница не найдена": "Page not found",
   "Тестовый перевод": "Test translation",
