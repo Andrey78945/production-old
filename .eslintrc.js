@@ -42,7 +42,7 @@ module.exports = {
       "error",
       { markupOnly: true, ignoreAttribute: ["data-testid", "to"] },
     ],
-    "max-len": ["warn", { ignoreComments: true }],
+    "max-len": ["warn", { ignoreComments: true, code: 120 }],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
   },
