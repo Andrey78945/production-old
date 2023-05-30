@@ -11,7 +11,6 @@ module.exports = {
     "plugin:react/jsx-runtime",
     "plugin:i18next/recommended",
   ],
-  overrides: [],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -43,14 +42,23 @@ module.exports = {
       { markupOnly: true, ignoreAttribute: ["data-testid", "to"] },
     ],
     "max-len": ["warn", { ignoreComments: true, code: 120 }],
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
+    // "react/jsx-uses-react": "off",
+    // "react/react-in-jsx-scope": "off",
   },
-  parser: "@typescript-eslint/parser",
-  settings: {
-    react: {
-      pragma: "React",
-      version: "detect",
+  // parser: "@typescript-eslint/parser",
+  // settings: {
+  //   react: {
+  //     pragma: "React",
+  //     version: "detect",
+  //   },
+  // },
+  globals: {
+    __IS_DEV__: true,
+  },
+  overrides: [
+    {
+      files: ["**/src/**/*.test.tsx", "***/src/**/*.test.ts"],
+      rules: { "i18next/no-literal-string": "off" },
     },
-  },
+  ],
 };

@@ -14,11 +14,16 @@ export function SideBar({ className }: SideBarProps) {
   const { t } = useTranslation();
   return (
     <section
+      data-testid="sidebar"
       className={classNames(cls.SideBar, { [cls.collapsed]: collapsed }, [
         className,
       ])}
     >
-      <button onClick={() => setCollapsed((prev) => !prev)} type="button">
+      <button
+        data-testid="sidebar-toggle"
+        onClick={() => setCollapsed((prev) => !prev)}
+        type="button"
+      >
         {t('Изменить ширину')}
       </button>
       <div className={classNames(cls.switchers, {}, [])}>

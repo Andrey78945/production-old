@@ -1,5 +1,8 @@
 /* eslint-disable linebreak-style */
-import { classNames } from './classNames';
+// import { classNames } from './classNames';
+
+import { classNames } from 'shared/lib/classNames/classNames';
+
 /* eslint-disable linebreak-style */
 describe('classNames', () => {
   test('test with only first parametr', () => {
