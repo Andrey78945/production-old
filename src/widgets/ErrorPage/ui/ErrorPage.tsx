@@ -16,9 +16,7 @@ export function ErrorPage() {
         {t('Произошла непредвиденная ошибка')}
       </h1>
       <Button onClick={reloadPage}>{t('Обновить страницу')}</Button>
-      <Link className={cls.link} to="/">
-        {t('Домой')}
-      </Link>
+
     </section>
   );
 }
