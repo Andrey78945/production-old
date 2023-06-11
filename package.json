@@ -56,6 +56,7 @@
     "@types/webpack-bundle-analyzer": "4.4.1",
     "@types/webpack-dev-server": "4.7.2",
     "@typescript-eslint/eslint-plugin": "5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
     "babel-loader": "8.2.3",
     "babel-plugin-i18next-extract": "0.8.3",
     "css-loader": "6.6.0",
@@ -68,7 +69,6 @@
     "html-webpack-plugin": "5.5.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "27.5.1",
-
     "mini-css-extract-plugin": "2.5.3",
     "react-refresh": "0.14.0",
     "regenerator-runtime": "0.13.9",
