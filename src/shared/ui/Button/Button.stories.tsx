@@ -9,9 +9,6 @@ const meta: Meta<typeof Button> = {
   component: Button,
   decorators: [ThemeDecorator(Theme.LIGHT)],
   tags: ['autodocs'],
-  // argTypes: {
-  //   backgroundColor: { control: 'color' },
-  // },
 };
 
 export default meta;
@@ -31,10 +28,67 @@ export const Clear: Story = {
   },
 };
 
+export const BackgroundTheme: Story = {
+  args: {
+    children: 'Text',
+    theme: ThemeButton.BACKGROUND,
+  },
+};
+
+export const BackgroundInvertedTheme: Story = {
+  args: {
+    children: 'Text',
+    theme: ThemeButton.BACKGROUND_INVERTED,
+  },
+};
+
 export const Outline: Story = {
   args: {
     children: 'Text',
     theme: ThemeButton.OUTLINE,
+  },
+};
+
+export const OutlineL: Story = {
+  args: {
+    children: 'Text',
+    theme: ThemeButton.OUTLINE,
+    size: 'size_l',
+  },
+};
+
+export const OutlineXL: Story = {
+  args: {
+    children: 'Text',
+    theme: ThemeButton.OUTLINE,
+    size: 'size_xl',
+  },
+};
+
+export const SquareL: Story = {
+  args: {
+    children: '>',
+    theme: ThemeButton.BACKGROUND_INVERTED,
+    size: 'size_l',
+    square: 'square',
+  },
+};
+
+export const SquareM: Story = {
+  args: {
+    children: '>',
+    theme: ThemeButton.BACKGROUND_INVERTED,
+    size: 'size_m',
+    square: 'square',
+  },
+};
+
+export const SquareXL: Story = {
+  args: {
+    children: '>',
+    theme: ThemeButton.BACKGROUND_INVERTED,
+    square: 'square',
+    size: 'size_xl',
   },
 };
 

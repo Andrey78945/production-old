@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import cls from './SideBar.module.scss';
 
 interface SideBarProps {
@@ -19,13 +20,17 @@ export function SideBar({ className }: SideBarProps) {
         className,
       ])}
     >
-      <button
+      <Button
         data-testid="sidebar-toggle"
         onClick={() => setCollapsed((prev) => !prev)}
+        className={cls.collapseBtn}
         type="button"
+        square="square"
+        size="size_l"
+        theme={ThemeButton.BACKGROUND_INVERTED}
       >
-        {t('Изменить ширину')}
-      </button>
+        {collapsed ? '>' : '<'}
+      </Button>
       <div className={classNames(cls.switchers, {}, [])}>
         <ThemeSwitcher />
         <LangSwitcher />
