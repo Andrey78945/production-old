@@ -4,6 +4,10 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import AboutIcon from 'shared/assets/icons/about.svg';
+import HomeIcon from 'shared/assets/icons/home.svg';
 import cls from './SideBar.module.scss';
 
 interface SideBarProps {
@@ -31,9 +35,30 @@ export function SideBar({ className }: SideBarProps) {
       >
         {collapsed ? '>' : '<'}
       </Button>
+      <div className={cls.items}>
+
+        <AppLink
+          className={cls.item}
+          to={RoutePath.main}
+          theme={AppLinkTheme.SECONDARY}
+        >
+          <HomeIcon className={cls.icon} />
+          <span className={cls.link}>{t('Главная страница')}</span>
+        </AppLink>
+
+        <AppLink
+          className={cls.item}
+          to={RoutePath.about}
+          theme={AppLinkTheme.SECONDARY}
+        >
+          <AboutIcon className={cls.icon} />
+          <span className={cls.link}>{t('О сайте')}</span>
+        </AppLink>
+
+      </div>
       <div className={classNames(cls.switchers, {}, [])}>
         <ThemeSwitcher />
-        <LangSwitcher />
+        <LangSwitcher short={collapsed} className={cls.lang} />
       </div>
     </section>
   );
