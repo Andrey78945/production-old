@@ -18,7 +18,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export function Button(props: ButtonProps) {
   const {
-    className, children, theme, square, size, ...otherProps
+    className, children, theme, square, size, onClick, ...otherProps
   } = props;
 
   return (
@@ -29,8 +29,9 @@ export function Button(props: ButtonProps) {
         cls[square],
         cls[size],
       ])}
-      onClick={props.onClick}
+      onClick={onClick}
       type="button"
+      {...otherProps}
     >
       {children}
     </button>
