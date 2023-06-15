@@ -17,7 +17,8 @@
     "storybook:build": "storybook build -c ./config/storybook",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
-    "test:ui:ok": "npx loki approve"
+    "test:ui:ok": "npx loki approve",
+    "test:ui:html": "npx reg-cli  ./.loki/current ./.loki/reference ./.loki/difference -R ./.loki/report.html"
   },
   "repository": {
     "type": "git",
@@ -72,6 +73,7 @@
     "loki": "^0.32.0",
     "mini-css-extract-plugin": "2.5.3",
     "react-refresh": "0.14.0",
+    "reg-cli": "^0.17.7",
     "regenerator-runtime": "0.13.9",
     "sass": "1.49.9",
     "sass-loader": "12.6.0",
