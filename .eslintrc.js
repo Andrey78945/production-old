@@ -20,7 +20,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'i18next'],
+  plugins: ['react', 'i18next', 'react-hooks'],
   rules: {
     'react/jsx-indent': [2, 2],
     indent: [2, 2],
@@ -55,6 +55,8 @@ module.exports = {
         code: 120,
       },
     ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
     // "react/jsx-uses-react": "off",
     // "react/react-in-jsx-scope": "off",
   },
@@ -71,7 +73,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/src/**/*.test.tsx', '***/src/**/*.test.ts'],
+      files: ['**/src/**/*.[test,stories].tsx', '***/src/**/*.test.ts'],
       rules: {
         'i18next/no-literal-string': 'off',
       },

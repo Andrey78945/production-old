@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable i18next/no-literal-string */
 import './styles/index.scss';
 import { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -15,6 +17,7 @@ function App() {
     <div className={classNames('app', { hovered: false }, [theme])}>
       <Suspense fallback={t('Загрузка')}>
         <Navbar />
+
         <main className="main">
           <SideBar />
 
