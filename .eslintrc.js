@@ -57,6 +57,7 @@ module.exports = {
     ],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
+    'no-param-reassign': 'off',
     // "react/jsx-uses-react": "off",
     // "react/react-in-jsx-scope": "off",
   },
@@ -73,7 +74,11 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/src/**/*.[test,stories].tsx', '***/src/**/*.test.ts'],
+      files: [
+        '**/src/**/*.test.tsx',
+        '**/src/**/*.stories.tsx',
+        '***/src/**/*.test.ts',
+      ],
       rules: {
         'i18next/no-literal-string': 'off',
       },
