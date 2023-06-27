@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { ReactNode, useEffect } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
@@ -10,6 +10,7 @@ interface ModalProps {
   children?: ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
+  lazy?: boolean;
 }
 
 export const Modal = (props: ModalProps) => {
@@ -18,7 +19,17 @@ export const Modal = (props: ModalProps) => {
     children,
     isOpen,
     onClose,
+    lazy,
   } = props;
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
+
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
   };
@@ -41,6 +52,10 @@ export const Modal = (props: ModalProps) => {
     window.addEventListener('keydown', (e: KeyboardEvent) => onKeyEscape(e));
     return () => window.removeEventListener('keydown', (e) => onKeyEscape(e));
   });
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   if (!isOpen) return null;
   return (
