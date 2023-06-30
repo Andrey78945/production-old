@@ -12,6 +12,7 @@ module.exports = {
     'plugin:i18next/recommended',
     'plugin:storybook/recommended',
     'plugin:storybook/recommended',
+    'prettier',
   ],
   parserOptions: {
     ecmaFeatures: {

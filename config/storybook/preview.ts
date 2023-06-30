@@ -4,10 +4,16 @@ import { Theme } from '../../src/app/providers/ThemeProvider/lib/ThemeContext';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator';
+import { TranslationDecorator } from '../../src/shared/config/storybook/TranslationDecorator';
 
 const preview: Preview = {
   parameters: {
-    decorators: [StyleDecorator, ThemeDecorator(Theme.LIGHT), RouterDecorator],
+    decorators: [
+      StyleDecorator,
+      ThemeDecorator(Theme.LIGHT),
+      RouterDecorator,
+      TranslationDecorator,
+    ],
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
