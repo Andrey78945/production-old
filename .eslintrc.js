@@ -46,7 +46,7 @@ module.exports = {
       'error',
       {
         markupOnly: true,
-        ignoreAttribute: ['data-testid', 'to', 'square', 'size'],
+        ignoreAttribute: ['data-testid', 'to', 'square', 'size', 'name'],
       },
     ],
     'max-len': [
@@ -75,11 +75,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: [
-        '**/src/**/*.test.tsx',
-        '**/src/**/*.stories.tsx',
-        '***/src/**/*.test.ts',
-      ],
+      files: ['**/src/**/*.test.tsx', '**/src/**/*.stories.tsx', '***/src/**/*.test.ts'],
       rules: {
         'i18next/no-literal-string': 'off',
       },
