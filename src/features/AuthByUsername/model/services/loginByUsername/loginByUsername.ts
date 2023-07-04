@@ -4,7 +4,7 @@ import { User, userActions } from 'entities/User';
 import i18n from 'shared/config/i18n/i18n';
 import { USER_LOCALSTORIGE_KEY } from 'shared/const/localstorige';
 
-interface LoginByUsernameProps {
+export interface LoginByUsernameProps {
   username: string;
   password: string;
 }
