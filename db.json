@@ -14,7 +14,15 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "id": "1",
+    "firstname": "Timur",
+    "lastname": "Ulbi",
+    "age": "22",
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": ""
   },
   "users": [{
     "id": "1",
