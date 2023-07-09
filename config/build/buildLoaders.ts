@@ -6,7 +6,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const cssLoader = buildCssLoader(isDev);
   const typescriptLoader = {
     test: /\.tsx?$/,
-    use: 'ts-loader',
+    use: [{ loader: 'ts-loader', options: { transpileOnly: true } }],
     exclude: /node_modules/,
   };
 
@@ -31,10 +31,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     use: {
       loader: 'babel-loader',
       options: {
-        presets: [
-          ['@babel/preset-env', { targets: 'defaults' }],
-          '@babel/preset-react',
-        ],
+        presets: [['@babel/preset-env', { targets: 'defaults' }], '@babel/preset-react'],
         plugins: [
           [
             'i18next-extract',

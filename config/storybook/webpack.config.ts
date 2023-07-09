@@ -11,26 +11,31 @@ export default ({ config }: { config: webpack.Configuration }) => {
     entry: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
-  config?.resolve?.modules?.push(paths.src);
-  config?.resolve?.extensions?.push('.ts', '.tsx');
+  config!.resolve!.modules!.push(paths.src);
+  config!.resolve!.extensions!.push('.ts', '.tsx');
   if (config && config.module) {
-    config.module.rules = config.module?.rules?.map((rule: RuleSetRule | '...') => {
-      if ((typeof rule === 'object') && /svg/.test(rule.test as string)) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    config.module.rules = config.module!.rules!.map((rule: RuleSetRule) => {
+      if (typeof rule === 'object' && /svg/.test(rule.test as string)) {
         return { ...rule, exclude: /\.svg$/i };
       }
       return rule;
     });
   }
-  config?.module?.rules?.push({
+  config!.module!.rules!.push({
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
     use: ['@svgr/webpack'],
   });
-  config?.module?.rules?.push(buildCssLoader(true));
+  config!.module!.rules!.push(buildCssLoader(true));
 
-  config?.plugins?.push(new DefinePlugin({
-    __IS_DEV__: true,
-  }))
+  config!.plugins!.push(
+    new DefinePlugin({
+      __IS_DEV__: true,
+      __API__: JSON.stringify(''),
+    })
+  );
 
   return config;
 };

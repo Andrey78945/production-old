@@ -11,7 +11,7 @@ const meta: Meta<typeof MainPage> = {
   decorators: [
     ThemeDecorator(Theme.LIGHT),
     RouterDecorator,
-    StoreDecorator({ login: { username: '123', password: 'adgk' } }),
+    StoreDecorator({ login: { username: '123', password: 'adgk', isLoading: false } }),
   ],
   tags: ['autodocs'],
 };

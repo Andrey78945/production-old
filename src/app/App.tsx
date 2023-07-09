@@ -8,6 +8,7 @@ import { Navbar } from 'widgets/Navbar';
 import { SideBar } from 'widgets/SideBar';
 import { useDispatch } from 'react-redux';
 import { userActions } from 'entities/User';
+import { Loader } from 'shared/ui/Loader/Loader';
 import { AppRouter } from './providers/AppRouter';
 import { useTheme } from './providers/ThemeProvider/lib/useTheme';
 
@@ -17,15 +18,15 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(userActions.initAuthData())
-  }, [dispatch])
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
 
   return (
     <div className={classNames('app', { hovered: false }, [theme])}>
-      <Suspense fallback={t('Загрузка')}>
+      <Suspense fallback={<Loader />}>
         <Navbar />
 
-        <main className="main">
+        <main className='main'>
           <SideBar />
 
           <AppRouter />

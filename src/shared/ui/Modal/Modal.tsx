@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { ReactNode, useEffect, useState } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
 
@@ -14,13 +14,7 @@ interface ModalProps {
 }
 
 export const Modal = (props: ModalProps) => {
-  const {
-    className,
-    children,
-    isOpen,
-    onClose,
-    lazy,
-  } = props;
+  const { className, children, isOpen, onClose, lazy } = props;
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -30,7 +24,7 @@ export const Modal = (props: ModalProps) => {
     }
   }, [isOpen]);
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls.opened]: isOpen,
   };
 
@@ -62,11 +56,8 @@ export const Modal = (props: ModalProps) => {
     <Portal>
       <div className={classNames(cls.Modal, mods, [className])}>
         <div className={cls.overlay} onClick={handleClose}>
-          <div
-            className={classNames(cls.content, { [cls.contentOpened]: isOpen })}
-            onClick={handleClick}
-          >
-            <button type="button" onClick={onClose}>
+          <div className={classNames(cls.content, { [cls.contentOpened]: isOpen })} onClick={handleClick}>
+            <button type='button' onClick={onClose}>
               #
             </button>
             {children}
@@ -74,6 +65,5 @@ export const Modal = (props: ModalProps) => {
         </div>
       </div>
     </Portal>
-
   );
 };

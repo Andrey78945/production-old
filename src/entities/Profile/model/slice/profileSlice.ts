@@ -1,19 +1,33 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { ProfileSchema, Profile } from '../types/profile';
+import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 
 const initialState: ProfileSchema = {
   readonly: true,
   isLoading: false,
-  error: null,
-  data: null,
+  error: undefined,
+  data: undefined,
 };
 
 export const profileSlice = createSlice({
   name: 'profile',
   initialState,
-  reducers: {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    setAuthData: (state, action: PayloadAction<Profile>) => { },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchProfileData.pending, (state) => {
+        state.error = undefined;
+        state.isLoading = true;
+      })
+      .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
+        state.error = undefined;
+        state.data = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(fetchProfileData.rejected, (state, action) => {
+        state.error = action.payload as string;
+        state.isLoading = false;
+      });
   },
 });
 

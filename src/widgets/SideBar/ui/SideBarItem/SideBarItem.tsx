@@ -5,7 +5,7 @@ import cls from './SideBarItem.module.scss';
 import { SideBarItemType } from '../SideBar/model/items';
 
 interface SideBarItemProps {
-  item?: SideBarItemType;
+  item: SideBarItemType;
   collapsed: boolean;
 }
 
@@ -18,5 +18,3 @@ export const SideBarItem = ({ item, collapsed }: SideBarItemProps) => {
     </AppLink>
   );
 };
-
-
