@@ -1,0 +1,19 @@
+.Select {
+  display: flex;
+  max-width: 300px;
+}
+
+.label {
+  margin-right: 10px;
+}
+
+.select {
+  outline: none;
+  color: var(--primary-color);
+  border: none;
+}
+
+.option {
+  color: var(--inverted-primary-color);
+  background-color: var(--inverted-bg-color);
+}

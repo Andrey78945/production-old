@@ -1,9 +1,44 @@
 {
-  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" },
-{ "id": 2, "title": "json-server", "author": "typ" },
-{ "id":3, "title": "json-server", "author": "code" },
-{ "id": 4, "title": "json-server", "author": "typico" }],
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "profile": { "name": "typicode" },
-  "users": [{"id":"1", "username": "admin", "password": "123"}]
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "title": "json-server",
+      "author": "typ"
+    },
+    {
+      "id": 3,
+      "title": "json-server",
+      "author": "code"
+    },
+    {
+      "id": 4,
+      "title": "json-server",
+      "author": "typico"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode",
+    "age": 53,
+    "city": "Уфа",
+    "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663671765_4-mykaleidoscope-ru-p-zloi-khaker-vkontakte-4.jpg"
+  },
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
+    }
+  ]
 }

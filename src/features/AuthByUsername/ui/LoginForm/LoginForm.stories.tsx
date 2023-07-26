@@ -8,7 +8,7 @@ import LoginForm from './LoginForm';
 const meta: Meta<typeof LoginForm> = {
   title: 'features/LoginForm',
   component: LoginForm,
-  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({login: {username: '123', password: 'adgk'}})],
+  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({ login: { username: '123', password: 'adgk' } })],
   tags: ['autodocs'],
 };
 
@@ -17,15 +17,11 @@ export default meta;
 type Story = StoryObj<typeof LoginForm>;
 
 export const Primary: Story = {
-  args: {
-
-  },
+  args: {},
 };
 
 export const Dark: Story = {
-  args: {
-
-  },
+  args: {},
 };
 
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
@@ -33,7 +29,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK)];
 export const WithError: Story = {
   args: {},
 };
-WithError.decorators = [StoreDecorator({login: {error: 'Что-то пошло не так'}})];
+WithError.decorators = [StoreDecorator({ login: { error: 'Что-то пошло не так' } })];
 
 export const Loading: Story = {
   args: {},

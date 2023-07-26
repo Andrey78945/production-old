@@ -14,9 +14,10 @@ interface SideBarProps {
 export const SideBar = memo(({ className }: SideBarProps) => {
   const [collapsed, setCollapsed] = useState(false);
 
-  const itemsList = useMemo(() => (
-    SideBarItemsList.map((item) => <SideBarItem item={item} collapsed={collapsed} key={item.path} />)
-  ), [collapsed])
+  const itemsList = useMemo(
+    () => SideBarItemsList.map((item) => <SideBarItem item={item} collapsed={collapsed} key={item.path} />),
+    [collapsed]
+  );
 
   return (
     <section data-testid='sidebar' className={classNames(cls.SideBar, { [cls.collapsed]: collapsed }, [className])}>
