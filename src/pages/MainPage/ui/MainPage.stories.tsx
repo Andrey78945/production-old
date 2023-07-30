@@ -10,8 +10,8 @@ const meta: Meta<typeof MainPage> = {
   component: MainPage,
   decorators: [
     ThemeDecorator(Theme.LIGHT),
-    RouterDecorator,
     StoreDecorator({ login: { username: '123', password: 'adgk', isLoading: false } }),
+    RouterDecorator,
   ],
   tags: ['autodocs'],
 };

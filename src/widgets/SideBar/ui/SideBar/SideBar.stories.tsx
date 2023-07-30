@@ -4,12 +4,17 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { SideBar } from './SideBar';
 
 const meta: Meta<typeof SideBar> = {
   title: 'widgets/SideBar',
   component: SideBar,
-  decorators: [ThemeDecorator(Theme.LIGHT), RouterDecorator],
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({ login: { username: '123', password: 'adgk' } }),
+    RouterDecorator,
+  ],
   tags: ['autodocs'],
 };
 

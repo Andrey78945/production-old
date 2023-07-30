@@ -10,8 +10,8 @@ const meta: Meta<typeof Navbar> = {
   component: Navbar,
   decorators: [
     ThemeDecorator(Theme.LIGHT),
-    RouterDecorator,
     StoreDecorator({ login: { username: '123', password: 'adgk' } }),
+    RouterDecorator,
   ],
   tags: ['autodocs'],
 };
@@ -39,5 +39,3 @@ export const DarkOut: Story = {
   args: {},
 };
 DarkOut.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({ user: { authData: {} } })];
-
-

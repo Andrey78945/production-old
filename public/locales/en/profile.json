@@ -9,5 +9,10 @@
   "Отменить": "Cancel",
   "Сохранить": "Save",
   "Аватар": "Avatar",
-  "Валюта расчетов": "Currency"
+  "Валюта расчетов": "Currency",
+  "Некорректный возраст": "Incorrect age",
+  "Некорректная страна": "Incorrect country",
+  "Некорректное имя или фамилия": "Incorrect name or surname",
+  "Нет данных": "No data",
+  "Ошибка сервера": "Server error"
 }

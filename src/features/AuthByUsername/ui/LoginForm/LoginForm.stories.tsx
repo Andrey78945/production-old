@@ -3,12 +3,17 @@ import '../../../../app/styles/index.scss';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
 import LoginForm from './LoginForm';
 
 const meta: Meta<typeof LoginForm> = {
   title: 'features/LoginForm',
   component: LoginForm,
-  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({ login: { username: '123', password: 'adgk' } })],
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({ login: { username: '123', password: 'adgk' } }),
+    RouterDecorator,
+  ],
   tags: ['autodocs'],
 };
 
