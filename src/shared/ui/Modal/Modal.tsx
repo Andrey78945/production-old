@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { ReactNode, useEffect, useState } from 'react';
 import { Mods, classNames } from 'shared/lib/classNames/classNames';
+import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
 
@@ -15,6 +16,8 @@ interface ModalProps {
 
 export const Modal = (props: ModalProps) => {
   const { className, children, isOpen, onClose, lazy } = props;
+
+  const { theme } = useTheme();
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -54,7 +57,7 @@ export const Modal = (props: ModalProps) => {
   if (!isOpen) return null;
   return (
     <Portal>
-      <div className={classNames(cls.Modal, mods, [className])}>
+      <div className={`modal ${classNames(cls.Modal, mods, [className, theme])}`}>
         <div className={cls.overlay} onClick={handleClose}>
           <div className={classNames(cls.content, { [cls.contentOpened]: isOpen })} onClick={handleClick}>
             <button type='button' onClick={onClose}>

@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const cssLoader = buildCssLoader(isDev);
@@ -25,27 +26,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     ],
   };
 
-  const babelLoader = {
-    test: /\.[jt]sx?$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: [['@babel/preset-env', { targets: 'defaults' }], '@babel/preset-react'],
-        plugins: [
-          [
-            'i18next-extract',
-            {
-              locales: ['en', 'ru'],
-              keyAsDefaultValue: true, // false
-              saveMissing: true,
-              outputPath: 'public/locales/{{locale}}/{{ns}}.json', // t("key", {ns: "locale-file"})
-            },
-          ],
-        ],
-      },
-    },
-  };
+  const babelLoader = buildBabelLoader(isDev);
 
   return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoader];
 }
