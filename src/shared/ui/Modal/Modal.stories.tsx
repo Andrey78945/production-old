@@ -27,7 +27,10 @@ export const Primary: Story = {
 
 export const OutlineDark: Story = {
   args: {
-    children: 'Text',
+    children: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores
+        atque incidunt dolor nobis tempora nostrum fuga eius, odit esse
+        molestias nisi eligendi dolorum cumque tenetur maiores ipsum, blanditiis
+        aut debitis?`,
     isOpen: true,
   },
 };

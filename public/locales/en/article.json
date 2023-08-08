@@ -1,1 +1,6 @@
-{ "Статья": "Article", "Статьи": "Articles" }
+{
+  "Статья": "Article",
+  "Статьи": "Articles",
+  "Статья не найдена": "Article not found",
+  "Произошла ошибка при загрузке статьи.": "Aricle loading error."
+}
