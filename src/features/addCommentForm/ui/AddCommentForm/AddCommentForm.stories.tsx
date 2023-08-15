@@ -3,11 +3,12 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { CommentList } from './CommentList';
+import { action } from '@storybook/addon-actions';
+import AddCommentForm from './AddCommentForm';
 
-const meta: Meta<typeof CommentList> = {
-  title: 'entities/Comment/CommentList',
-  component: CommentList,
+const meta: Meta<typeof AddCommentForm> = {
+  title: 'features/AddCommentForm',
+  component: AddCommentForm,
   decorators: [
     ThemeDecorator(Theme.LIGHT),
     StoreDecorator({ login: { username: '123', password: 'adgk', isLoading: false } }),
@@ -18,25 +19,14 @@ const meta: Meta<typeof CommentList> = {
 
 export default meta;
 
-type Story = StoryObj<typeof CommentList>;
+type Story = StoryObj<typeof AddCommentForm>;
 
 export const Light: Story = {
-  args: {
-    comments: [
-      {
-        id: '1',
-        text: 'hello world',
-        user: { id: '1', username: 'Vasya' },
-      },
-      {
-        id: '2',
-        text: 'Comment 2',
-        user: { id: '1', username: 'Petya' },
-      },
-    ],
-  },
+  args: { onSendComment: action('onSendComment') },
 };
 
-export const Loading: Story = {
-  args: { comments: [], isLoading: true },
+export const Dark: Story = {
+  args: { onSendComment: action('onSendComment') },
 };
+
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

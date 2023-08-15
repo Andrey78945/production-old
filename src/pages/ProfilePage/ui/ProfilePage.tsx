@@ -13,11 +13,13 @@ import {
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { DynamicMModuleLoader, ReducerList } from 'shared/lib/components/DynamicMModuleLoader/DynamicMModuleLoader';
+import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 function ProfilePage() {
@@ -32,6 +34,7 @@ function ProfilePage() {
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateErrors);
+  const { id } = useParams<{ id: string }>();
 
   const validateErrorTranslation = {
     [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
@@ -41,11 +44,9 @@ function ProfilePage() {
     [ValidateProfileError.SERVER_ERROR]: t('Ошибка сервера'),
   };
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
-    }
-  }, [dispatch]);
+  useInitialEffect(() => {
+    if (id) dispatch(fetchProfileData(id));
+  });
 
   const onChangeFirstname = useCallback(
     (value?: string) => {
@@ -104,7 +105,7 @@ function ProfilePage() {
   );
 
   return (
-    <DynamicMModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div>
         <ProfilePageHeader />
         {validateErrors.length > 0 &&
@@ -126,7 +127,7 @@ function ProfilePage() {
           onChangeCountry={onChangeCountry}
         />
       </div>
-    </DynamicMModuleLoader>
+    </DynamicModuleLoader>
   );
 }
 
