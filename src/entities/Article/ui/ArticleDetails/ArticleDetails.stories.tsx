@@ -40,6 +40,7 @@ const article: Article = {
       ],
     },
   ],
+  user: undefined,
 };
 
 const meta: Meta<typeof ArticleDetails> = {

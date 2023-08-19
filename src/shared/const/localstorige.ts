@@ -1,1 +1,0 @@
-export const USER_LOCALSTORIGE_KEY = 'user'

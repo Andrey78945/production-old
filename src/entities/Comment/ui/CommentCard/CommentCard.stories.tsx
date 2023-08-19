@@ -1,17 +1,29 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
+import type { Meta, StoryObj } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { CommentCard } from './CommentCard';
 
-export default {
+const meta: Meta<typeof CommentCard> = {
   title: 'entities/Comment/CommentCard',
   component: CommentCard,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof CommentCard>;
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({ login: { username: '123', password: 'adgk', isLoading: false } }),
+    RouterDecorator,
+  ],
+  tags: ['autodocs'],
+};
 
-const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
+export default meta;
 
-export const Normal = Template.bind({});
-Normal.args = {};
+type Story = StoryObj<typeof CommentCard>;
+
+export const Light: Story = {
+  args: {},
+};
+
+export const Loading: Story = {
+  args: { isLoading: true },
+};

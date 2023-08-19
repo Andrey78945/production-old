@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { User, userActions } from 'entities/User';
 import i18n from 'shared/config/i18n/i18n';
-import { USER_LOCALSTORIGE_KEY } from 'shared/const/localstorige';
+import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 
 export interface LoginByUsernameProps {
   username: string;
@@ -21,7 +21,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
 
       if (!response.data) throw new Error('Responce is empty');
 
-      localStorage.setItem(USER_LOCALSTORIGE_KEY, JSON.stringify(response.data));
+      localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
       dispatch(userActions.setAuthData(response.data));
 
       extra.navigate?.('/about');
