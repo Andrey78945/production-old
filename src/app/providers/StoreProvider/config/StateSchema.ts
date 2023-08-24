@@ -5,14 +5,15 @@ import { CounterSchema } from 'entities/Counter';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
+import { ScrollRestoreSchema } from 'features/ScrollRestore';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { To, NavigateOptions } from 'react-router-dom';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scrollRestore: ScrollRestoreSchema;
 
   // Асинхронные редьюсеры
   login?: LoginSchema;
