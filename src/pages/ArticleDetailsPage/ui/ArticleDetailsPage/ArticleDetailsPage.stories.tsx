@@ -40,6 +40,10 @@ const article: Article = {
       ],
     },
   ],
+  user: {
+    id: '1',
+    username: 'Ulbi tv',
+  },
 };
 
 const meta: Meta<typeof ArticleDetailsPage> = {
