@@ -1,20 +1,24 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+import '../../../app/styles/index.scss';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 
 import { Text } from 'shared/ui/Text/Text';
 import { Card } from './Card';
 
-export default {
+const meta: Meta<typeof Card> = {
   title: 'shared/Card',
   component: Card,
-  argTypes: {
-    backgroundColor: { control: 'color' },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+  tags: ['autodocs'],
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Card>;
+
+export const Primary: Story = {
+  args: {
+    children: <Text title='test' text='text text' />,
   },
-} as ComponentMeta<typeof Card>;
-
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
-
-export const Normal = Template.bind({});
-Normal.args = {
-  children: <Text title='test' text='text text' />,
 };

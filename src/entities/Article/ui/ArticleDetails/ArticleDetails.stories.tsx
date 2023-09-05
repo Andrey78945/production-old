@@ -40,7 +40,10 @@ const article: Article = {
       ],
     },
   ],
-  user: undefined,
+  user: {
+    id: '101',
+    username: 'string',
+  },
 };
 
 const meta: Meta<typeof ArticleDetails> = {

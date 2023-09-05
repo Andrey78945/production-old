@@ -1,18 +1,26 @@
-import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-
+import type { Meta, StoryObj } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ArticleListItem } from './ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
 
-export default {
+const meta: Meta<typeof ArticleListItem> = {
   title: 'entities/Article/ArticleListItem',
   component: ArticleListItem,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof ArticleListItem>;
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({ login: { username: '123', password: 'adgk' } }),
+    RouterDecorator,
+  ],
+  tags: ['autodocs'],
+  args: {},
+};
 
-const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
+export default meta;
+
+type Story = StoryObj<typeof ArticleListItem>;
 
 const article = {
   id: '1',
@@ -89,14 +97,10 @@ const article = {
   ],
 } as Article;
 
-export const Big = Template.bind({});
-Big.args = {
-  view: ArticleView.BIG,
-  article,
+export const Big: Story = {
+  args: { view: ArticleView.BIG, article },
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  view: ArticleView.SMALL,
-  article,
+export const Small: Story = {
+  args: { view: ArticleView.SMALL, article },
 };

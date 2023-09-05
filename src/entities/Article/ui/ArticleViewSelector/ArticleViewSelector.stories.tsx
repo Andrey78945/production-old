@@ -1,17 +1,27 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 
 import { ArticleViewSelector } from './ArticleViewSelector';
 
-export default {
-  title: 'shared/ArticleViewSelector',
+const meta: Meta<typeof ArticleViewSelector> = {
+  title: 'entities/Article/ArticleViewSelector',
   component: ArticleViewSelector,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof ArticleViewSelector>;
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({ login: { username: '123', password: 'adgk' } }),
+    RouterDecorator,
+  ],
+  tags: ['autodocs'],
+  args: {},
+};
 
-const Template: ComponentStory<typeof ArticleViewSelector> = (args) => <ArticleViewSelector {...args} />;
+export default meta;
 
-export const Normal = Template.bind({});
-Normal.args = {};
+type Story = StoryObj<typeof ArticleViewSelector>;
+
+export const Normal: Story = {
+  args: {},
+};

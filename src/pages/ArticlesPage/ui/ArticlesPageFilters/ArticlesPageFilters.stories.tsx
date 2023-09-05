@@ -1,17 +1,26 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 
 import { ArticlesPageFilters } from './ArticlesPageFilters';
 
-export default {
-  title: 'pages/Article/ArticlesPageFilters',
+const meta: Meta<typeof ArticlesPageFilters> = {
+  title: 'pages/ArticlesPageFilters',
   component: ArticlesPageFilters,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof ArticlesPageFilters>;
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({ login: { username: '123', password: 'adgk' } }),
+    RouterDecorator,
+  ],
+  tags: ['autodocs'],
+};
 
-const Template: ComponentStory<typeof ArticlesPageFilters> = (args) => <ArticlesPageFilters {...args} />;
+export default meta;
 
-export const Normal = Template.bind({});
-Normal.args = {};
+type Story = StoryObj<typeof ArticlesPageFilters>;
+
+export const Primary: Story = {
+  args: {},
+};

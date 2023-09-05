@@ -1,17 +1,27 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 
 import { ArticleTypeTabs } from './ArticleTypeTabs';
 
-export default {
+const meta: Meta<typeof ArticleTypeTabs> = {
   title: 'entities/Article/ArticleTypeTabs',
   component: ArticleTypeTabs,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof ArticleTypeTabs>;
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({ login: { username: '123', password: 'adgk' } }),
+    RouterDecorator,
+  ],
+  tags: ['autodocs'],
+  args: {},
+};
 
-const Template: ComponentStory<typeof ArticleTypeTabs> = (args) => <ArticleTypeTabs {...args} />;
+export default meta;
 
-export const Normal = Template.bind({});
-Normal.args = {};
+type Story = StoryObj<typeof ArticleTypeTabs>;
+
+export const Normal: Story = {
+  args: {},
+};
