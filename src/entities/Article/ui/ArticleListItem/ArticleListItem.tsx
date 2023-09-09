@@ -56,7 +56,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           <div className={cls.footer}>
             <AppLink target={target} to={RoutePath.article_details + article.id}>
               <Button onClick={onOpenArticle} theme={ThemeButton.OUTLINE}>
-                {t('Читать далее...')}
+                {t('Читать далее')}
               </Button>
             </AppLink>
             {views}

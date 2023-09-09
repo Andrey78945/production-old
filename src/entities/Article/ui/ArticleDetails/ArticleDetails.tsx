@@ -2,17 +2,16 @@
 /* eslint-disable i18next/no-literal-string */
 import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/article';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import cls from './ArticleDetails.module.scss';
@@ -72,7 +71,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
       </>
     );
   } else if (error) {
-    content = <Text align={TextAlign.CENTER} title={t('Произошла ошибка при загрузке статьи.')} />;
+    content = <Text align={TextAlign.CENTER} title={t('Произошла ошибка при загрузке статьи')} />;
   } else {
     content = (
       <>

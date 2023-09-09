@@ -21,7 +21,13 @@ export default meta;
 type Story = StoryObj<typeof CommentCard>;
 
 export const Light: Story = {
-  args: {},
+  args: {
+    comment: {
+      id: '1',
+      text: 'hello world',
+      user: { id: '1', username: 'Vasya' },
+    },
+  },
 };
 
 export const Loading: Story = {

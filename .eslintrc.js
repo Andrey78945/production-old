@@ -21,7 +21,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'i18next', 'react-hooks'],
+  plugins: ['react', 'i18next', 'react-hooks', 'ulbi-tv-plugin'],
   rules: {
     'react/jsx-indent': [2, 2],
     indent: [2, 2],
@@ -59,6 +59,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'no-param-reassign': 'off',
+    'ulbi-tv-plugin/path-checker': 'error',
     // "react/jsx-uses-react": "off",
     // "react/react-in-jsx-scope": "off",
   },
