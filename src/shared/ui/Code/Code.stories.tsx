@@ -24,10 +24,10 @@ export const Primary: Story = {
   args: {
     text:
       'export default {\n' +
-      "    title: 'shared/Code',\n" +
+      '    title: \'shared/Code\',\n' +
       '    component: Code,\n' +
       '    argTypes: {\n' +
-      "        backgroundColor: { control: 'color' },\n" +
+      '        backgroundColor: { control: \'color\' },\n' +
       '    },\n' +
       '} as ComponentMeta<typeof Code>;\n' +
       '\n' +
